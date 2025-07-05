@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Enter Password</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #ffe0ec;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      flex-direction: column;
+      text-align: center;
+      padding: 20px;
+    }
+
+    input[type="password"] {
+      padding: 12px 15px;
+      font-size: 18px;
+      border-radius: 8px;
+      border: 2px solid #d63384;
+      margin-bottom: 15px;
+      width: 250px;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    input[type="password"]:focus {
+      border-color: #ff66a3;
+    }
+
+    button {
+      background-color: #d63384;
+      color: white;
+      padding: 12px 25px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      width: 270px;
+    }
+
+    button:hover {
+      background-color: #ff66a3;
+    }
+
+    .error {
+      color: red;
+      margin-top: 12px;
+      font-weight: bold;
+      height: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Please Enter Password</h2>
+  <input type="password" id="passwordInput" placeholder="Enter password here" />
+  <button onclick="checkPassword()">Unlock</button>
+  <div class="error" id="errorMsg"></div>
+
+  <script>
+    const correctPassword = "iloveyoubaba"; // change this to your desired password
+
+    function checkPassword() {
+      const input = document.getElementById('passwordInput').value;
+      const errorMsg = document.getElementById('errorMsg');
+
+      if(input === correctPassword) {
+        // Redirect to your love page (replace with your actual file or URL)
+        window.location.href = 'love.html';
+      } else {
+        errorMsg.textContent = "Wrong password! Try again.";
+      }
+    }
+
+    // Optional: let user press Enter key to submit
+    document.getElementById('passwordInput').addEventListener('keyup', function(e) {
+      if(e.key === 'Enter') {
+        checkPassword();
+      }
+    });
+  </script>
+
+</body>
+</html>
